@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://calxvmunt7suh"]
+
+[ext_resource type="Script" uid="uid://di3trhmib6at1" path="res://personaje/personaje.gd" id="1_48aib"]
+[ext_resource type="Texture2D" uid="uid://uqj81c74uc2d" path="res://kenney_tiny-town/Tiles/tile_0095.png" id="1_s7vd6"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s7vd6"]
+radius = 8.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_48aib")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(7, 10.5)
+scale = Vector2(1.875, 2.3125)
+texture = ExtResource("1_s7vd6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(7, 14)
+shape = SubResource("CapsuleShape2D_s7vd6")

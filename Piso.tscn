@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://j5tah4ab8ses"]
+
+[ext_resource type="Texture2D" uid="uid://bb6yhaaobfh7g" path="res://kenney_tiny-town/Tiles/tile_0013.png" id="1_8hkeh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8hkeh"]
+size = Vector2(1152, 20)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(579, 465)
+scale = Vector2(72.25, 2.5625)
+texture = ExtResource("1_8hkeh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(578, 455)
+shape = SubResource("RectangleShape2D_8hkeh")
