@@ -1,0 +1,93 @@
+[gd_scene load_steps=7 format=3 uid="uid://djn2gniv58enn"]
+
+[ext_resource type="Texture2D" uid="uid://cyil8xmxwsgcq" path="res://kenney_tiny-town/Tiles/tile_0094.png" id="1_s7bn3"]
+[ext_resource type="Texture2D" uid="uid://bvi330dc4xip4" path="res://kenney_tiny-town/Tiles/tile_0093.png" id="2_2hac7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s7bn3"]
+radius = 3.91088
+
+[sub_resource type="Animation" id="Animation_e6d4v"]
+resource_name = "enemy"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Tile0093:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.01, 1.5, 1.99, 2.51, 3.01, 3.5, 3.97),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(89, 117), Vector2(117, 137), Vector2(161, 131), Vector2(199, 91), Vector2(147, 43), Vector2(77, 24), Vector2(10, 86), Vector2(46, 162), Vector2(90, 119)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Tile0093:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.01, 1.5, 1.99, 2.51, 3.01, 3.5, 3.97),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_qp131"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Tile0093:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(89, 117)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Tile0093:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6do27"]
+_data = {
+&"RESET": SubResource("Animation_qp131"),
+&"enemy": SubResource("Animation_e6d4v")
+}
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Tile0094" type="Sprite2D" parent="."]
+position = Vector2(89, 101)
+scale = Vector2(3, 3.5625)
+texture = ExtResource("1_s7bn3")
+
+[node name="Tile0093" type="Sprite2D" parent="."]
+position = Vector2(89, 117)
+scale = Vector2(2.03125, 1.9375)
+texture = ExtResource("2_2hac7")
+
+[node name="Area2D" type="Area2D" parent="Tile0093"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tile0093/Area2D"]
+scale = Vector2(1, 1)
+shape = SubResource("CircleShape2D_s7bn3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_6do27")
+}
+autoplay = "enemy"

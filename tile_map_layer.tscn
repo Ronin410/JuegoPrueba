@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://diroospdsgjnx"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_g245i"]
+
+[sub_resource type="TileSet" id="TileSet_0ugm7"]
+tile_shape = 3
+occlusion_layer_0/light_mask = 1
+
+[node name="TileMapLayer" type="TileMapLayer"]
+material = SubResource("CanvasItemMaterial_g245i")
+tile_set = SubResource("TileSet_0ugm7")

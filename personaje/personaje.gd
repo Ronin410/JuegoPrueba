@@ -1,10 +1,8 @@
 extends CharacterBody2D
 
-@export var speed = 100
-@export var gravity = 100
-@export var jump_speed = 1000
-var velocidad = Vector2.ZERO
-var gravedad = 98.0
+@export var speed = 200
+@export var gravity = 50
+@export var jump_speed = 900
 
 func _physics_process(delta: float) -> void:
 	var direction = Input.get_axis("izquierda","derecha")
@@ -18,3 +16,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y = velocity.y - jump_speed
 	move_and_slide()
 	
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	print("Entro") # Replace with function body.
