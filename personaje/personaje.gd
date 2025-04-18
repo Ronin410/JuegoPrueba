@@ -19,4 +19,5 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	print("Entro") # Replace with function body.
+	pass
+	#get_tree().change_scene_to_file("res://Level3.tscn")

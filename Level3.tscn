@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://tb4nbjym3ous"]
+
+[ext_resource type="PackedScene" uid="uid://calxvmunt7suh" path="res://personaje/Personaje.tscn" id="2_84iim"]
+[ext_resource type="PackedScene" uid="uid://j5tah4ab8ses" path="res://Piso.tscn" id="2_f63rs"]
+[ext_resource type="Texture2D" uid="uid://dflubao0tfpar" path="res://kenney_tiny-town/Tiles/tile_0085.png" id="3_f63rs"]
+[ext_resource type="Script" uid="uid://cc0q8pnu58xwx" path="res://banderra.gd" id="4_xcs05"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xcs05"]
+size = Vector2(15.8182, 15.6585)
+
+[node name="Level3" type="Node2D"]
+
+[node name="StaticBody2D2" parent="." instance=ExtResource("2_f63rs")]
+position = Vector2(8, 149)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_84iim")]
+position = Vector2(141, 522)
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+
+[node name="Tile0085" type="Sprite2D" parent="."]
+position = Vector2(945, 554)
+scale = Vector2(4.5625, 3.875)
+texture = ExtResource("3_f63rs")
+
+[node name="Area2D" type="Area2D" parent="Tile0085"]
+script = ExtResource("4_xcs05")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tile0085/Area2D"]
+position = Vector2(-0.219177, 0.774194)
+shape = SubResource("RectangleShape2D_xcs05")
+
+[connection signal="body_entered" from="Tile0085/Area2D" to="Tile0085/Area2D" method="_on_body_entered"]
