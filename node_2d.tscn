@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://d28p1tw1psf1f"]
+
+[ext_resource type="PackedScene" uid="uid://diroospdsgjnx" path="res://tile_map_layer.tscn" id="1_0e48y"]
+[ext_resource type="PackedScene" uid="uid://dn1j3ghvq7whx" path="res://PersonajeTilemap.tscn" id="2_0hol4"]
+[ext_resource type="PackedScene" uid="uid://bl7y44fflubcs" path="res://enemytilemap.tscn" id="2_epypp"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TileMapLayer" parent="." instance=ExtResource("1_0e48y")]
+position = Vector2(5, 26)
+
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("2_0hol4")]
+
+[node name="Enemy" parent="." instance=ExtResource("2_epypp")]
+position = Vector2(330, 363)
